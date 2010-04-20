@@ -75,3 +75,20 @@ open_lighthouse_ticket () {
 }
 
 alias lho='open_lighthouse_ticket'
+
+# rm command that moves files to trash directory
+# By Trevor Hall: http://blog.imtrevor.com/2010/04/20/command-line-trash-can-deferred-deletes/
+function rm() {
+    if [ ! -d $HOME/.trash ]
+    then
+        mkdir $HOME/.trash
+    fi
+
+    for i in $*
+    do
+        if ! echo $i | egrep -q '^-'
+        then
+            mv $i $HOME/.trash/`date +%s`-`echo $i | sed 's/\//_/g'`
+        fi
+    done
+}
