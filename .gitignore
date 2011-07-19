@@ -6,3 +6,5 @@ custom/*
 !custom/example.zsh
 !custom/doug.zsh
 .DS_Store
+cache
+*.swp
