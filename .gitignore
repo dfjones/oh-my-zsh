@@ -1,7 +1,5 @@
-locals.zsh
-log/.zsh_history
-projects.zsh
-custom
+# custom files
+custom/
 !custom/plugins/example
 !custom/example.zsh
 !custom/doug.zsh
@@ -9,4 +7,7 @@ custom
 cache
 *.swp
 !custom/example.zshcache
+
+# temp files directories
 cache/
+log/
