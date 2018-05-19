@@ -64,9 +64,6 @@ export WORKON_HOME="~/.virtualenvs"
 # Node rlwarp
 # alias node='env NODE_NO_READLINE=1 rlwrap -p Green -S "node >>> " node'
 
-# Homebrew Github API token
-export HOMEBREW_GITHUB_API_TOKEN="3263eeb377567f453388938c68d18543df0e251e"
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
