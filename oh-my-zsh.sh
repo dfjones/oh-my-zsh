@@ -11,8 +11,6 @@ fpath=($ZSH/functions $ZSH/completions $fpath)
 # Load all stock functions (from $fpath files) called below.
 autoload -U compaudit compinit
 
-: ${ZSH_DISABLE_COMPFIX:=true}
-
 # Set ZSH_CUSTOM to the path where your custom config files
 # and plugins exists, or else we will use the default custom/
 if [[ -z "$ZSH_CUSTOM" ]]; then
@@ -53,7 +51,7 @@ done
 
 # Figure out the SHORT hostname
 if [[ "$OSTYPE" = darwin* ]]; then
-  # OS X's $HOST changes with dhcp, etc. Use ComputerName if possible.
+  # macOS's $HOST changes with dhcp, etc. Use ComputerName if possible.
   SHORT_HOST=$(scutil --get ComputerName 2>/dev/null) || SHORT_HOST=${HOST/.*/}
 else
   SHORT_HOST=${HOST/.*/}
@@ -74,7 +72,7 @@ if [[ $ZSH_DISABLE_COMPFIX != true ]]; then
     compinit -d "${ZSH_COMPDUMP}"
   fi
 else
-  compinit -i -d "${ZSH_COMPDUMP}"
+  compinit -u -d "${ZSH_COMPDUMP}"
 fi
 
 # Load all of the plugins that were defined in ~/.zshrc
@@ -93,8 +91,12 @@ done
 unset config_file
 
 # Load the theme
-if [ "$ZSH_THEME" = "random" ]; then
-  themes=($ZSH/themes/*zsh-theme)
+if [[ "$ZSH_THEME" == "random" ]]; then
+  if [[ "${(t)ZSH_THEME_RANDOM_CANDIDATES}" = "array" ]] && [[ "${#ZSH_THEME_RANDOM_CANDIDATES[@]}" -gt 0 ]]; then
+    themes=($ZSH/themes/${^ZSH_THEME_RANDOM_CANDIDATES}.zsh-theme)
+  else
+    themes=($ZSH/themes/*zsh-theme)
+  fi
   N=${#themes[@]}
   ((N=(RANDOM%N)+1))
   RANDOM_THEME=${themes[$N]}
