@@ -9,6 +9,8 @@ export ZSH=$HOME/.oh-my-zsh
 # ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 export ZSH_THEME="spaceship"
 
+export SPACESHIP_TIME_SHOW=true
+
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
 
