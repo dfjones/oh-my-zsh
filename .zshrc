@@ -18,7 +18,6 @@ export ZSH_THEME="spaceship"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
-source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
@@ -69,11 +68,13 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Oh My Zsh Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-plugins=(vi-mode git gradle taskwarrior tmux tmuxinator zsh-autosuggestions)
+plugins=(vi-mode git gradle zsh-autosuggestions)
 
 # vi-mode customization
 # reduce lag when hitting escape
 export KEYTIMEOUT=1
+
+source $ZSH/oh-my-zsh.sh
 
 # zsh tmux settings
 ZSH_TMUX_AUTO_START='true'
