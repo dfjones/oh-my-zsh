@@ -3,6 +3,10 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
+# spaceship theme is from https://github.com/denysdovhan/spaceship-prompt
+# It can be installed with
+# git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 export ZSH_THEME="spaceship"
 
 # Set to this to use case-sensitive completion
